@@ -1,0 +1,8 @@
+node_modules
+官方教程文档和官方站点示例
+.next
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
