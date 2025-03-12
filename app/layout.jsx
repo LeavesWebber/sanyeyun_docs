@@ -5,8 +5,8 @@ import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
  
 export const metadata = {
-  // Define your metadata here
-  // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+  title: '三叶互联文档中心',
+  description: '三叶互联产品文档中心 - 提供全面的产品使用指南、API文档和最佳实践'
 }
  
 const banner = <Banner dismissible={false}>
@@ -16,37 +16,37 @@ const banner = <Banner dismissible={false}>
     </Link>
     .
   </Banner>
+
 const navbar = (
   <Navbar
-    logo={<b>Nextra</b>}
-    // ... Your additional navbar options
+    logo={
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" alt="三叶互联 Logo" width="32" height="32" />
+        <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>三叶互联</span>
+      </div>
+    }
   />
 )
-const footer = <Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>
+
+const footer = <Footer>MIT 2024 © 三叶互联.</Footer>
  
 export default async function RootLayout({ children }) {
   return (
     <html
-      // Not required, but good for SEO
-      lang="en"
-      // Required to be set
+      lang="zh-CN"
       dir="ltr"
-      // Suggested by `next-themes` package https://github.com/pacocoursey/next-themes#with-app
       suppressHydrationWarning
     >
-      <Head
-      // ... Your additional head options
-      >
-        {/* Your additional tags should be passed as `children` of `<Head>` element */}
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <body>
+      <body className="nextra-body" suppressHydrationWarning>
         <Layout
           banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
+          docsRepositoryBase="https://github.com/sanyeyun/docs"
           footer={footer}
-          // ... Your additional layout options
         >
           {children}
         </Layout>
