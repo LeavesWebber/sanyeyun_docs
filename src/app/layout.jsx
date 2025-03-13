@@ -28,7 +28,7 @@ const navbar = (
   />
 )
 
-const footer = <Footer>MIT 2024 © 三叶互联.</Footer>
+const footer = <Footer>All Rights Reserved 2025 © 三叶互联.</Footer>
  
 export default async function RootLayout({ children }) {
   return (
@@ -47,6 +47,10 @@ export default async function RootLayout({ children }) {
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/sanyeyun/docs"
           footer={footer}
+          navigation={{
+            prev: true,
+            next: true
+          }}
         >
           {children}
         </Layout>
