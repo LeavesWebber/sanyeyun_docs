@@ -1,17 +1,7 @@
 export default {
-  index: {
-    theme: {
-      pagination: true // Hide pagination on this page
-    }
-  },
-  '2.serving-procedure': {
-    theme: {
-      pagination: true // Hide pagination on this page
-    }
-  },
-  '3.product-deconstruction': {
-    theme: {
-      pagination: true // Hide pagination on this page
-    }
-  },
+  index: '',
+  glossary: '术语注解',
+  '2.serving-procedure': '',
+  '3.product-deconstruction': '',
+  '4.market-analysis': '',
 }
