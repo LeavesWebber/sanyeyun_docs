@@ -28,7 +28,16 @@ const navbar = (
   />
 )
 
-const footer = <Footer>All Rights Reserved 2025 © 三叶互联.</Footer>
+const footer = <Footer>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.9rem' }}>
+      All Rights Reserved 2025 ©
+      <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" alt="三叶互联 Logo" width="20" height="20" style={{ margin: '0 4px' }} />
+      三叶互联.
+    </div>
+    <a href="https://beian.miit.gov.cn/" style={{ color: '#666', fontSize: '0.9rem', textDecoration: 'none' }}>苏ICP备2024143438号-2</a>
+  </div>
+</Footer>
  
 export default async function RootLayout({ children }) {
   return (
@@ -39,18 +48,20 @@ export default async function RootLayout({ children }) {
     >
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" />
       </Head>
       <body className="nextra-body" suppressHydrationWarning>
         <Layout
           banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/sanyeyun/docs"
+          docsRepositoryBase="https://github.com/LeavesWebber/sanyeyun_docs.git"
           footer={footer}
           navigation={{
             prev: true,
             next: true
           }}
+          sidebar={{defaultMenuCollapseLevel: 1}}
         >
           {children}
         </Layout>

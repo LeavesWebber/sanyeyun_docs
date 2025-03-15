@@ -1,7 +1,28 @@
 export default {
   index: '',
-  glossary: '术语注解',
-  '2.serving-procedure': '',
-  '3.product-deconstruction': '',
-  '4.market-analysis': '',
+  glossary: '',
+  '-': {
+    type: 'separator',
+    title: '产品',
+  },
+  'product-deconstruction': '',
+  '--': {
+    type: 'separator',
+    title: '市场',
+  },
+  'market-analysis': '',
+  'marketing-strategy': '',
+  'budget-strategy': '',
+  '---': {
+    type: 'separator',
+    title: '团队',
+  },
+  'ops-management': '',
+  'org-structure': '',
+  '----': {
+    type: 'separator',
+    title: '发展',
+  },
+  'development-strategy': '',
+  'business-risk': '',
 }

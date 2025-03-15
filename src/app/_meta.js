@@ -5,5 +5,6 @@ export default {
     docs:   {
         type: 'page',
         title: '商业计划书',
-      }
+    },
+    
   }
