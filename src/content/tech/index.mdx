@@ -1,0 +1,44 @@
+import { Cards } from 'nextra/components'
+import { LuEarth } from "react-icons/lu";
+import { FaGamepad } from "react-icons/fa6";
+import { TbServerBolt } from "react-icons/tb";
+import { TfiPanel } from "react-icons/tfi";
+import { Callout } from "nextra/components";
+
+# 技术手册
+<Callout type='info'>
+本项目并不是一个单一的软件，而是通过以下构件打造的一个完整的，全新的 MC 游戏生态格局：
+</Callout>
+<br/>
+<Cards.Card
+  icon={<LuEarth />}
+  title="三叶互联网站"
+  href="/tech/sanyeyun"
+  arrow
+/>
+<Cards>
+  <Cards.Card
+    icon={<FaGamepad />}
+    title="三叶启动器"
+    href="/tech/leaflet-launcher"
+  />
+  <Cards.Card
+    icon={<TbServerBolt />}
+    title="三叶云控"
+    href="/tech/leaflet-monitor"
+  />
+  <Cards.Card
+    icon={<TfiPanel />}
+    title="游戏面板"
+    href="/tech/panel"
+  />
+</Cards>
+<br/>
+本手册将以产品为分类，分述技术细节
+<br/>
+  <iframe
+    src="https://codesandbox.io/p/sandbox/react-dev-forked-tdqk56"
+    width="100%"
+    height="500px"
+    title="SWR-States"
+  />

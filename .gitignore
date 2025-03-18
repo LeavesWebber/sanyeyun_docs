@@ -1,8 +1,11 @@
 node_modules
-官方教程文档和官方站点示例
+_官方教程文档和官方站点示例
 .next
 .env
 .env.local
-.env.development.local
+next-env.d.ts
 .env.test.local
 .env.production.local
+.env.development.local
+desktop.ini
+.idea

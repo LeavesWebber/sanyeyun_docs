@@ -3,7 +3,8 @@ import { Banner, Head } from 'nextra/components'
 import { Link } from 'nextra-theme-docs'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
- 
+import { FaGithubAlt } from "react-icons/fa";
+
 export const metadata = {
   title: '三叶互联文档中心',
   description: '三叶互联产品文档中心 - 提供全面的产品使用指南、API文档和最佳实践'
@@ -19,6 +20,8 @@ const banner = <Banner dismissible={false}>
 
 const navbar = (
   <Navbar
+    projectLink="https://github.com/LeavesWebber/sanyeyun_docs"
+    projectIcon= { <FaGithubAlt style={{ fontSize: '1.5em' }} />}
     logo={
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
         <img src="https://www.emojiall.com/en/header-svg/%F0%9F%8D%83.svg" alt="三叶互联 Logo" width="32" height="32" />
@@ -55,7 +58,7 @@ export default async function RootLayout({ children }) {
           banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/LeavesWebber/sanyeyun_docs.git"
+          docsRepositoryBase="https://github.com/LeavesWebber/sanyeyun_docs/blob/main"
           footer={footer}
           navigation={{
             prev: true,

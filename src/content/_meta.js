@@ -1,28 +1,21 @@
 export default {
-  index: '',
-  glossary: '',
-  '-': {
-    type: 'separator',
-    title: '产品',
-  },
-  'product-deconstruction': '',
-  '--': {
-    type: 'separator',
-    title: '市场',
-  },
-  'market-analysis': '',
-  'marketing-strategy': '',
-  'budget-strategy': '',
-  '---': {
-    type: 'separator',
-    title: '团队',
-  },
-  'ops-management': '',
-  'org-structure': '',
-  '----': {
-    type: 'separator',
-    title: '发展',
-  },
-  'development-strategy': '',
-  'business-risk': '',
-}
+    index: {
+        title: '首页',
+        display: 'hidden'
+    },
+    docs:   {
+        type: 'page',
+        title: '商业计划书',
+        display: 'children'
+    },
+    tech: {
+        type: 'page',
+        title: '技术手册',
+        display: 'children'
+    },
+    contact: {
+        type: 'page',
+        title: '联系作者',
+        href: 'https://blog.oksanye.com/me/?tab=friendship'
+    },
+  }
