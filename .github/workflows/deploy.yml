@@ -10,32 +10,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.18.2'  # 使用你指定的 Node.js 版本
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.18.2'  # 使用你指定的 Node.js 版本
 
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: latest  # 或指定你使用的特定版本
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest  # 或指定你使用的特定版本
 
-    - name: Install dependencies
-      run: pnpm install
+      - name: Cache dependencies and build outputs
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pnpm-store
+            ${{ github.workspace }}/.next/cache
+            ${{ github.workspace }}/node_modules
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            ${{ runner.os }}-nextjs-pnpm-
 
-    - name: Build Nextra site
-      run: pnpm run build
+      - name: Install dependencies
+        run: pnpm install
 
-    - name: Deploy to VPS
-      uses: burnett01/rsync-deployments@5.2.1
-      with:
-        switches: -avzr --delete --exclude=.user.ini --exclude=.htaccess  # 添加排除规则
-        path: out/
-        remote_path: ${{ secrets.SERVER_DEPLOY_PATH }}
-        remote_host: ${{ secrets.SERVER_HOST }}
-        remote_port: ${{ secrets.SERVER_PORT }}
-        remote_user: ${{ secrets.SERVER_USERNAME }}
-        remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Build Nextra site
+        run: pnpm run build
+
+      - name: Deploy to VPS
+        uses: burnett01/rsync-deployments@5.2.1
+        with:
+          switches: -avzr --delete --exclude=.user.ini --exclude=.htaccess  # 添加排除规则
+          path: out/
+          remote_path: ${{ secrets.SERVER_DEPLOY_PATH }}
+          remote_host: ${{ secrets.SERVER_HOST }}
+          remote_port: ${{ secrets.SERVER_PORT }}
+          remote_user: ${{ secrets.SERVER_USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
